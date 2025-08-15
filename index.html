@@ -1,0 +1,496 @@
+<!-- =========================
+File: index.html (Home)
+Save each section between the file markers below into its own .html file.
+Each page is totally standalone with embedded CSS & JS.
+========================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adamu A Adamu — RCHP | Home</title>
+  <meta name="description" content="Personal site for Adamu A Adamu (RCHP) — Junior Community Health Extension Worker (jCHEW) student at Alma'arif College of Nursing, Midwifery & Health Sciences." />
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: #121933;
+      --text: #e9ecf8;
+      --muted: #a9b4d6;
+      --accent: #8dd3ff;
+      --accent-2:#b7f0d5;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    html, body{height:100%}
+    body{margin:0;background: radial-gradient(1200px 800px at 80% -10%, #1b2350 0%, transparent 60%), var(--bg);color:var(--text);font: 16px/1.6 system-ui, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"}
+    a{color:var(--accent)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    /* Navbar */
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand strong{font-size:18px;color:var(--text)}
+    .nav a{color:var(--muted);text-decoration:none;padding:10px 14px;border-radius:12px}
+    .nav a:hover{background:#1a2346;color:var(--text)}
+    .nav .cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#061021;font-weight:700}
+    .nav .cta:hover{filter:brightness(1.1)}/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+@media (max-width: 860px){.hero{grid-template-columns:1fr;}}
+.card{background:linear-gradient(180deg, #131a3b 0%, #0f1430 100%);border:1px solid #222a57;border-radius:var(--radius);box-shadow:var(--shadow)}
+.p{padding:24px}
+h1{font-size:44px;line-height:1.1;margin:0 0 10px 0}
+.subtitle{color:var(--muted);font-size:18px;margin-top:8px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.badge{background:#1a2346;border:1px solid #2a3574;color:var(--text);padding:8px 12px;border-radius:999px;font-size:13px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid #293269;background:#11183a;color:var(--text);text-decoration:none}
+.btn:hover{background:#192157}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#061021;border:none}
+.btn.primary:hover{filter:brightness(1.08)}
+
+/* Avatar with breathing halo */
+.avatar{position:relative;display:grid;place-items:center;aspect-ratio:1/1;border-radius:24px;overflow:hidden}
+.avatar::before, .avatar::after{content:"";position:absolute;inset:-12%;border-radius:inherit;filter: blur(18px);background: conic-gradient(from 0deg, rgba(141,211,255,.35), rgba(183,240,213,.35), rgba(141,211,255,.35));animation: breathe 5.5s ease-in-out infinite}
+.avatar::after{animation-delay:1.7s;opacity:.6}
+@keyframes breathe{0%{transform:scale(.96);opacity:.65}50%{transform:scale(1.04);opacity:.95}100%{transform:scale(.96);opacity:.65}}
+.avatar .frame{position:relative;background:#0e1537;border:1px solid #2b3575;border-radius:20px;width:100%;height:100%;display:grid;place-items:center}
+.avatar svg{width:74%;height:auto}
+
+/* Footer */
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+@media (max-width:600px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{background:#0f1534;border:1px solid #242c60;border-radius:14px;padding:14px;text-align:center}
+.kpi b{display:block;font-size:22px;margin-bottom:4px}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav card p">
+      <a class="brand" href="index.html" aria-label="Home">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8dd3ff"/><stop offset="1" stop-color="#b7f0d5"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="12" fill="url(#g)"/><path d="M12 31c7-1 7-14 12-14s5 12 12 13" stroke="#0b1020" stroke-width="3.5" stroke-linecap="round"/></svg>
+        <strong>Adamu A Adamu</strong>
+      </a>
+      <div>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </div>
+    </nav><section class="hero">
+<!-- =========================
+File: index.html (Home)
+Save each section between the file markers below into its own .html file.
+Each page is totally standalone with embedded CSS & JS.
+========================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adamu A Adamu — RCHP | Home</title>
+  <meta name="description" content="Personal site for Adamu A Adamu (RCHP) — Junior Community Health Extension Worker (jCHEW) student at Alma'arif College of Nursing, Midwifery & Health Sciences." />
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: #121933;
+      --text: #e9ecf8;
+      --muted: #a9b4d6;
+      --accent: #8dd3ff;
+      --accent-2:#b7f0d5;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    html, body{height:100%}
+    body{margin:0;background: radial-gradient(1200px 800px at 80% -10%, #1b2350 0%, transparent 60%), var(--bg);color:var(--text);font: 16px/1.6 system-ui, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"}
+    a{color:var(--accent)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    /* Navbar */
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand strong{font-size:18px;color:var(--text)}
+    .nav a{color:var(--muted);text-decoration:none;padding:10px 14px;border-radius:12px}
+    .nav a:hover{background:#1a2346;color:var(--text)}
+    .nav .cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#061021;font-weight:700}
+    .nav .cta:hover{filter:brightness(1.1)}/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+@media (max-width: 860px){.hero{grid-template-columns:1fr;}}
+.card{background:linear-gradient(180deg, #131a3b 0%, #0f1430 100%);border:1px solid #222a57;border-radius:var(--radius);box-shadow:var(--shadow)}
+.p{padding:24px}
+h1{font-size:44px;line-height:1.1;margin:0 0 10px 0}
+.subtitle{color:var(--muted);font-size:18px;margin-top:8px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.badge{background:#1a2346;border:1px solid #2a3574;color:var(--text);padding:8px 12px;border-radius:999px;font-size:13px}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;border:1px solid #293269;background:#11183a;color:var(--text);text-decoration:none}
+.btn:hover{background:#192157}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#061021;border:none}
+.btn.primary:hover{filter:brightness(1.08)}
+
+/* Avatar with breathing halo */
+.avatar{position:relative;display:grid;place-items:center;aspect-ratio:1/1;border-radius:24px;overflow:hidden}
+.avatar::before, .avatar::after{content:"";position:absolute;inset:-12%;border-radius:inherit;filter: blur(18px);background: conic-gradient(from 0deg, rgba(141,211,255,.35), rgba(183,240,213,.35), rgba(141,211,255,.35));animation: breathe 5.5s ease-in-out infinite}
+.avatar::after{animation-delay:1.7s;opacity:.6}
+@keyframes breathe{0%{transform:scale(.96);opacity:.65}50%{transform:scale(1.04);opacity:.95}100%{transform:scale(.96);opacity:.65}}
+.avatar .frame{position:relative;background:#0e1537;border:1px solid #2b3575;border-radius:20px;width:100%;height:100%;display:grid;place-items:center}
+.avatar svg{width:74%;height:auto}
+
+/* Footer */
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+@media (max-width:600px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{background:#0f1534;border:1px solid #242c60;border-radius:14px;padding:14px;text-align:center}
+.kpi b{display:block;font-size:22px;margin-bottom:4px}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav card p">
+      <a class="brand" href="index.html" aria-label="Home">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8dd3ff"/><stop offset="1" stop-color="#b7f0d5"/></linearGradient></defs><rect x="2" y="2" width="44" height="44" rx="12" fill="url(#g)"/><path d="M12 31c7-1 7-14 12-14s5 12 12 13" stroke="#0b1020" stroke-width="3.5" stroke-linecap="round"/></svg>
+        <strong>Adamu A Adamu</strong>
+      </a>
+      <div>
+        <a href="about.html">About</a>
+        <a href="academics.html">Academics</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </div>
+    </nav><section class="hero">
+  <div class="card p">
+    <h1>Registered Community Health Practitioner <span style="opacity:.6">(RCHP)</span></h1>
+    <p class="subtitle">Junior Community Health Extension Worker (<strong>jCHEW</strong>) — Alma'arif College of Nursing, Midwifery &amp; Health Sciences. Expected Graduation: <strong>30 Aug 2025</strong>.</p>
+    <div class="badges">
+      <span class="badge">Preventive Care</span>
+      <span class="badge">Maternal &amp; Child Health</span>
+      <span class="badge">Community Outreach</span>
+    </div>
+    <div class="buttons">
+      <a class="btn primary" href="portfolio.html">Explore Work</a>
+      <a class="btn" href="mailto:adamu@example.com" aria-label="Email">
+        <span>📧 Email</span>
+      </a>
+      <a class="btn" href="https://wa.me/2347049954574" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <span>🟢 WhatsApp</span>
+      </a>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b>120+</b><span>Community screenings</span></div>
+      <div class="kpi"><b>40+</b><span>Health talks delivered</span></div>
+      <div class="kpi"><b>8</b><span>Clinical rotations</span></div>
+    </div>
+  </div>
+  <div class="card p">
+    <div class="avatar" style="max-width:420px;margin:0 auto">
+      <div class="frame" aria-hidden="true">
+        <!-- Embedded SVG avatar -->
+        <svg viewBox="0 0 256 256" role="img" aria-label="Avatar illustration">
+          <defs>
+            <linearGradient id="skin" x1="0" x2="1">
+              <stop stop-color="#f6d6bd"/>
+              <stop offset="1" stop-color="#e5b891"/>
+            </linearGradient>
+            <linearGradient id="bgc" x1="0" x2="1">
+              <stop stop-color="#8dd3ff"/>
+              <stop offset="1" stop-color="#b7f0d5"/>
+            </linearGradient>
+          </defs>
+          <rect width="256" height="256" rx="28" fill="#10173a"/>
+          <circle cx="128" cy="98" r="46" fill="url(#skin)"/>
+          <rect x="64" y="150" width="128" height="66" rx="18" fill="url(#bgc)"/>
+          <circle cx="108" cy="88" r="6" fill="#2f2b28"/>
+          <circle cx="148" cy="88" r="6" fill="#2f2b28"/>
+          <path d="M110 109c4 7 32 7 36 0" stroke="#2f2b28" stroke-width="4" stroke-linecap="round"/>
+          <path d="M82 72c15-18 78-18 93 0" stroke="#2d335f" stroke-width="14" stroke-linecap="round"/>
+          <text x="128" y="238" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="22" fill="#0b1020" font-weight="700">AA</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>© <span id="y"></span> Adamu A Adamu · RCHP · jCHEW</p>
+</footer>
+
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html><!-- =========================
+File: about.html (Profile & Bio)
+========================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Adamu A Adamu</title>
+  <style>
+    :root{--bg:#0b1020;--card:#121933;--text:#e9ecf8;--muted:#a9b4d6;--accent:#8dd3ff;--accent-2:#b7f0d5;--radius:18px}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui}
+    .wrap{max-width:900px;margin:0 auto;padding:24px}
+    a{color:var(--accent);text-decoration:none}
+    .nav{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+    .nav a{color:var(--muted);padding:10px 12px;border-radius:12px}
+    .nav a:hover{background:#1a2346;color:var(--text)}
+    .card{background:linear-gradient(180deg,#131a3b,#0f1430);border:1px solid #222a57;border-radius:var(--radius);padding:22px}
+    h1{margin-top:0}
+    .grid{display:grid;gap:16px}
+    .avatar{position:relative;display:grid;place-items:center;max-width:200px}
+    .avatar::before{content:"";position:absolute;inset:-20%;border-radius:20px;background:radial-gradient(circle at 50% 50%, rgba(141,211,255,.35), rgba(183,240,213,.35));filter:blur(20px);animation:breathe 6s ease-in-out infinite}
+    @keyframes breathe{0%{transform:scale(.95);opacity:.7}50%{transform:scale(1.05);opacity:1}100%{transform:scale(.95);opacity:.7}}
+    .two{display:grid;grid-template-columns:200px 1fr;gap:20px}
+    @media (max-width:820px){.two{grid-template-columns:1fr}}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:#1a2346;border:1px solid #2a3574;padding:6px 10px;border-radius:999px;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="academics.html">Academics</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <section class="card grid">
+      <div class="two">
+        <div class="avatar">
+          <svg viewBox="0 0 256 256" aria-label="Avatar" role="img"><rect width="256" height="256" rx="28" fill="#10173a"/><circle cx="128" cy="98" r="46" fill="#f2c7a6"/><rect x="64" y="150" width="128" height="66" rx="18" fill="#8dd3ff"/><circle cx="108" cy="88" r="6" fill="#2f2b28"/><circle cx="148" cy="88" r="6" fill="#2f2b28"/><path d="M110 109c4 7 32 7 36 0" stroke="#2f2b28" stroke-width="4" stroke-linecap="round"/><text x="128" y="238" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="22" fill="#0b1020" font-weight="700">AA</text></svg>
+        </div>
+        <div>
+          <h1>Adamu A Adamu — RCHP</h1>
+          <p><strong>Short Bio:</strong> I am a compassionate community health trainee focused on preventive care, maternal & child health, and health education. I thrive in team-based settings and love turning data from screenings into clear actions for families. I’m currently advancing through the <strong>jCHEW</strong> program at Alma'arif College of Nursing, Midwifery & Health Sciences.</p>
+          <p><strong>Career Goals:</strong> In the next 3–5 years, I aim to serve as a frontline health practitioner leading outreach programs, expanding vaccination coverage, and piloting digital tools that make household health education simple and accessible.</p><div class="chips">
+        <span class="chip">RCHP</span>
+        <span class="chip">jCHEW</span>
+        <span class="chip">BLS Certified</span>
+        <span class="chip">First Aid</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</body>
+</html><!-- =========================
+File: academics.html (Academic Achievements)
+========================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academics — Adamu A Adamu</title>
+  <style>
+    :root{--bg:#0b1020;--card:#121933;--text:#e9ecf8;--muted:#a9b4d6;--accent:#8dd3ff;--radius:18px}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui}
+    .wrap{max-width:900px;margin:0 auto;padding:24px}
+    a{color:var(--accent)}
+    .nav{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+    .nav a{color:var(--muted);padding:10px 12px;border-radius:12px;text-decoration:none}
+    .nav a:hover{background:#1a2346;color:var(--text)}
+    .card{background:linear-gradient(180deg,#131a3b,#0f1430);border:1px solid #222a57;border-radius:var(--radius);padding:22px}
+    h1{margin:0 0 6px 0}
+    .list{display:grid;gap:12px;margin:16px 0}
+    .item{background:#0f1534;border:1px solid #242c60;border-radius:14px;padding:14px}
+    .grid{display:grid;gap:10px}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:800px){.two{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <section class="card">
+      <h1>Academic Profile</h1>
+      <p><strong>School:</strong> Alma'arif College of Nursing, Midwifery & Health Sciences</p>
+      <p><strong>Program:</strong> Junior Community Health Extension Workers (jCHEW)</p>
+      <p><strong>Expected Graduation:</strong> 30 Aug 2025</p>
+      <div class="two">
+        <div>
+          <h3>Diplomas & Certificates</h3>
+          <div class="list">
+            <div class="item"><strong>Basic Life Support (BLS)</strong> — Nigerian Red Cross (2024)</div>
+            <div class="item"><strong>First Aid & CPR</strong> — Health & Safety Academy (2024)</div>
+            <div class="item"><strong>Community Health Data Collection</strong> — mHealth Workshop (2023)</div>
+          </div>
+        </div>
+        <div>
+          <h3>Highlights</h3>
+          <div class="list">
+            <div class="item">Merit award for leading <em>World Malaria Day</em> outreach — screened 300+ residents.</div>
+            <div class="item">Top 10% in <em>Community Diagnosis</em> and <em>Maternal & Child Health</em> modules.</div>
+            <div class="item">Class rep for jCHEW cohort; coordinated 8+ peer‑learning sessions.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html><!-- =========================
+File: portfolio.html (Portfolio: Research, Volunteer, Certifications, Practical Experience)
+========================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Adamu A Adamu</title>
+  <style>
+    :root{--bg:#0b1020;--card:#121933;--text:#e9ecf8;--muted:#a9b4d6;--accent:#8dd3ff;--radius:18px}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui}
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    a{color:var(--accent);text-decoration:none}
+    .nav{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+    .nav a{color:var(--muted);padding:10px 12px;border-radius:12px}
+    .nav a:hover{background:#1a2346;color:var(--text)}
+    .grid{display:grid;gap:18px}
+    .card{background:linear-gradient(180deg,#131a3b,#0f1430);border:1px solid #222a57;border-radius:var(--radius);padding:22px}
+    .pill{display:inline-block;background:#1a2346;border:1px solid #2a3574;border-radius:999px;padding:6px 10px;font-size:12px;color:#c8d2f2}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:900px){.cols{grid-template-columns:1fr}}
+    .item{background:#0f1534;border:1px solid #242c60;border-radius:14px;padding:14px}
+    .item h3{margin:0 0 6px 0}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="contact.html">Contact</a>
+    </nav><section class="grid">
+  <div class="card">
+    <h2>Research Projects</h2>
+    <div class="item">
+      <h3>Household Handwashing Behaviors & Diarrheal Disease</h3>
+      <div class="meta">Apr–Jun 2024 · Lead Student Researcher</div>
+      <p>Surveyed 120 households, mapped water points, and piloted a simple handwashing cue poster. Results suggested a 15% increase in handwashing compliance during the pilot period.</p>
+      <span class="pill">Survey Design</span>
+      <span class="pill">Health Education</span>
+      <span class="pill">Data Entry</span>
+    </div>
+    <div class="item">
+      <h3>Community Malaria Screening Drive</h3>
+      <div class="meta">Aug 2024 · Team of 6</div>
+      <p>Coordinated RDT screening at two settlements; tracked positivity rates and referred severe cases. Crafted follow‑up SMS tips in English and Hausa to improve treatment adherence.</p>
+      <span class="pill">RDT</span>
+      <span class="pill">Outreach</span>
+      <span class="pill">mHealth</span>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <h2>Volunteer Work</h2>
+      <div class="item">
+        <h3>Community Health Educator — World Malaria Day</h3>
+        <div class="meta">Nigerian Red Cross · Apr 2024</div>
+        <p>Delivered 5 mini‑talks and assisted with nets distribution. Helped triage 180+ visitors.</p>
+      </div>
+      <div class="item">
+        <h3>Immunization Support Volunteer</h3>
+        <div class="meta">Primary Health Centre · Nov 2024</div>
+        <p>Organized cold‑chain checks and updated tally sheets during outreach campaigns.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Certifications</h2>
+      <ul>
+        <li>BLS — Nigerian Red Cross (2024)</li>
+        <li>First Aid & CPR (2024)</li>
+        <li>HIPAA Awareness (2023)</li>
+      </ul>
+      <h2>Practical Experience</h2>
+      <div class="item">
+        <h3>Clinical Rotations — Maternal & Child Health</h3>
+        <div class="meta">Jan–Mar 2025 · PHC Garki</div>
+        <p>Assisted in ANC clinics, growth monitoring, and counseling on exclusive breastfeeding.</p>
+      </div>
+      <div class="item">
+        <h3>Community Diagnosis Practicum</h3>
+        <div class="meta">May 2025 · Field Placement</div>
+        <p>Conducted HH surveys, mapped risk factors, and co‑authored a summary brief for the ward development committee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</body>
+</html><!-- =========================
+File: contact.html (Buttons to press + details)
+========================= --><!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Adamu A Adamu</title>
+  <style>
+    :root{--bg:#0b1020;--card:#121933;--text:#e9ecf8;--muted:#a9b4d6;--accent:#8dd3ff;--accent-2:#b7f0d5;--radius:18px}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui}
+    .wrap{max-width:860px;margin:0 auto;padding:24px}
+    .nav{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+    .nav a{color:var(--muted);padding:10px 12px;border-radius:12px;text-decoration:none}
+    .nav a:hover{background:#1a2346;color:var(--text)}
+    .card{background:linear-gradient(180deg,#131a3b,#0f1430);border:1px solid #222a57;border-radius:var(--radius);padding:22px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media (max-width:820px){.row{grid-template-columns:1fr}}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 16px;border-radius:14px;border:1px solid #293269;background:#11183a;color:var(--text);text-decoration:none}
+    .btn:hover{background:#192157}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#061021;border:none}
+    .meta{color:var(--muted)}
+    .grid{display:grid;gap:10px}
+    label{font-weight:600}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #293269;background:#0f1534;color:var(--text)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="portfolio.html">Portfolio</a>
+    </nav><section class="card">
+  <h1>Contact</h1>
+  <p class="meta">Full Name: <strong>Adamu A Adamu</strong></p>
+  <p class="meta">Professional Title: <strong>Registered Community Health Practitioner (RCHP)</strong></p>
+  <div class="row">
+    <div class="grid">
+      <a class="btn primary" href="mailto:adamu@example.com">📧 Email — tap to compose</a>
+      <a class="btn" href="https://wa.me/2347049954574" target="_blank" rel="noopener">🟢 WhatsApp — +234 704 995 4574</a>
+    </div>
+    <form class="grid" onsubmit="event.preventDefault(); alert('Thanks! This demo form is offline-only. Email/WhatsApp buttons above work.');">
+      <label for="m">Quick Message</label>
+      <textarea id="m" rows="5" placeholder="Write a short message…"></textarea>
+      <button class="btn" type="submit">Send (demo)</button>
+    </form>
+  </div>
+
+  <hr style="border:0;border-top:1px solid #253064;margin:18px 0">
+
+  <div class="grid">
+    <p><strong>Current School/College:</strong> Alma'arif College olf Nursing, Midwifery & Health Sciences</p>
+    <p><strong>Course:</strong> Junior Community Health Extension Workers (jCHEW)</p>
+    <p><strong>Expected Graduation:</strong> 30 Aug 2025</p>
+  </div>
+</section>
+
+  </div>
+</body>
+</html>
