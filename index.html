@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LMS SaaS Flow Diagram</title>
+<title>LMS SaaS Interactive Flow</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -33,24 +33,31 @@
     text-align: center;
     position: relative;
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
   }
 
-  .box span {
-    font-size: 0.9rem;
-    display: block;
-    margin-top: 5px;
-    font-weight: normal;
+  .box:hover {
+    transform: scale(1.05);
   }
 
-  .arrow {
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .arrow-down {
     width: 2px;
-    background: #6366f1;
     height: 40px;
-    margin: 0 auto;
+    background: #6366f1;
     position: relative;
+    margin: 0 auto 20px auto;
   }
 
-  .arrow::after {
+  .arrow-down::after {
     content: "";
     position: absolute;
     bottom: -10px;
@@ -59,69 +66,72 @@
     border-top-color: #6366f1;
   }
 
-  .row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+  .color-auth { background: #6366f1; }       /* Login/Signup */
+  .color-dashboard { background: #10b981; }  /* Dashboard */
+  .color-core { background: #f59e0b; }       /* Lessons / Class / Poll */
+  .color-engage { background: #ef4444; }     /* Blog / Quiz / Cert / Settings */
+
+  /* Optional curved arrows */
+  .arrow-curve {
+    width: 150px;
+    height: 80px;
+    border-top: 2px solid #6366f1;
+    border-right: 2px solid #6366f1;
+    border-radius: 0 0 0 80px;
+    margin: 0 auto 20px auto;
   }
-
-  .color-1 { background: #6366f1; }
-  .color-2 { background: #10b981; }
-  .color-3 { background: #f59e0b; }
-  .color-4 { background: #ef4444; }
-
 </style>
 </head>
 <body>
-<h1>LMS SaaS Flow Diagram</h1>
+<h1>LMS SaaS Interactive Flow</h1>
 
 <div class="diagram-container">
 
   <!-- Login / Signup -->
-  <div class="box color-1">
+  <div class="box color-auth" onclick="openPage('index.html')">
     Login / Signup
     <span>index.html / signup.html</span>
   </div>
-  <div class="arrow"></div>
+  <div class="arrow-down"></div>
 
   <!-- Dashboard -->
-  <div class="box color-2">
+  <div class="box color-dashboard" onclick="openPage('dashboard.html')">
     Dashboard
     <span>dashboard.html</span>
   </div>
-  <div class="arrow"></div>
+  <div class="arrow-curve"></div>
 
-  <!-- Main Modules Row -->
+  <!-- Core Modules Row -->
   <div class="row">
-    <div class="box color-3">
+    <div class="box color-core" onclick="openPage('courses.html')">
       Courses / Lessons
       <span>courses.html / lesson.html</span>
     </div>
-    <div class="box color-3">
+    <div class="box color-core" onclick="openPage('class.html')">
       Join Class
       <span>class.html</span>
     </div>
-    <div class="box color-3">
+    <div class="box color-core" onclick="openPage('poll.html')">
       Problem Poll
       <span>poll.html</span>
     </div>
   </div>
 
+  <!-- Engagement / Extra Modules Row -->
   <div class="row">
-    <div class="box color-4">
+    <div class="box color-engage" onclick="openPage('blog.html')">
       Blog Hub
       <span>blog.html</span>
     </div>
-    <div class="box color-4">
+    <div class="box color-engage" onclick="openPage('quiz-assignment.html')">
       Quiz & Assignment
       <span>quiz-assignment.html</span>
     </div>
-    <div class="box color-4">
+    <div class="box color-engage" onclick="openPage('certificate.html')">
       Certificates
       <span>certificate.html</span>
     </div>
-    <div class="box color-4">
+    <div class="box color-engage" onclick="openPage('settings.html')">
       Settings
       <span>settings.html</span>
     </div>
@@ -130,14 +140,18 @@
 </div>
 
 <script>
-  // Optional: Add interactivity like hover highlights
+  // Open page on box click
+  function openPage(url) {
+    window.open(url, '_blank'); // opens in new tab
+  }
+
+  // Optional: highlight on hover
   document.querySelectorAll('.box').forEach(box => {
     box.addEventListener('mouseover', () => {
-      box.style.transform = 'scale(1.05)';
-      box.style.transition = '0.3s';
+      box.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)';
     });
     box.addEventListener('mouseout', () => {
-      box.style.transform = 'scale(1)';
+      box.style.boxShadow = '0 6px 18px rgba(0,0,0,0.1)';
     });
   });
 </script>
