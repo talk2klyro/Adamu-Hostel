@@ -1,133 +1,146 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Adamu A Adamu - Professional Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LMS SaaS Flow Diagram</title>
 <style>
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
     margin: 0;
-    line-height: 1.6;
-    background-color: #f9fdfb;
-    color: #333;
-    scroll-behavior: smooth;
-  }
-  header {
-    background: linear-gradient(135deg, #2b7a78, #3aafa9);
-    color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  header h1 {
-    margin: 10px 0 0;
-    font-size: 2.5em;
-  }
-  header p {
-    margin: 5px 0;
-    font-size: 1.2em;
-    font-weight: 300;
-  }
-  .avatar {
-    width: 150px;
-    margin: 0 auto;
-    display: block;
-  }
-  .halo {
-    animation: breathe 4s ease-in-out infinite;
-    transform-origin: center;
-  }
-  @keyframes breathe {
-    0%, 100% { r: 80; opacity: 0.5; }
-    50% { r: 95; opacity: 0.2; }
-  }
-  section {
-    padding: 50px 20px;
-    max-width: 900px;
-    margin: auto;
-  }
-  h2 {
-    color: #2b7a78;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .timeline {
-    border-left: 3px solid #3aafa9;
-    padding-left: 20px;
-  }
-  .timeline div {
-    margin-bottom: 20px;
-  }
-  .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 5px;
-    background: #3aafa9;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: background 0.3s;
-  }
-  .btn:hover {
-    background: #2b7a78;
-  }
-  footer {
-    background: #2b7a78;
-    color: #fff;
-    text-align: center;
     padding: 20px;
-    font-size: 0.9em;
   }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    background: #4f46e5;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    min-width: 200px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+
+  .box span {
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+  }
+
+  .arrow {
+    width: 2px;
+    background: #6366f1;
+    height: 40px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .arrow::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: -5px;
+    border: 5px solid transparent;
+    border-top-color: #6366f1;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .color-1 { background: #6366f1; }
+  .color-2 { background: #10b981; }
+  .color-3 { background: #f59e0b; }
+  .color-4 { background: #ef4444; }
+
 </style>
 </head>
 <body>
-  <header>
-    <svg class="avatar" viewBox="0 0 200 200">
-      <circle class="halo" cx="100" cy="100" r="80" fill="#3aafa9" />
-      <circle cx="100" cy="100" r="50" fill="#fff" />
-      <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="40" fill="#2b7a78">AA</text>
-    </svg>
-    <h1>Adamu A Adamu</h1>
-    <p>Registered Community Health Practitioner (RCHP)</p>
-  </header>  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a dedicated Junior Community Health Extension Worker (jCHEW) currently studying at Alma'arif College Of Nursing Midwifery And Health Sciences. My mission is to promote quality healthcare services and contribute meaningfully to public health initiatives.</p>
-    <p><strong>Career Goals:</strong> To excel as a healthcare professional specializing in rural community health programs, maternal and child health, and preventive medicine.</p>
-  </section>  <section id="education">
-    <h2>Education & Achievements</h2>
-    <div class="timeline">
-      <div>
-        <h3>Diploma - Junior Community Health Extension Worker (jCHEW)</h3>
-        <p>Alma'arif College Of Nursing Midwifery And Health Sciences | Expected Graduation: 30/08/2025</p>
-      </div>
-      <div>
-        <h3>First Aid & Basic Life Support (BLS) Certification</h3>
-        <p>Health Safety Institute | 2024</p>
-      </div>
+<h1>LMS SaaS Flow Diagram</h1>
+
+<div class="diagram-container">
+
+  <!-- Login / Signup -->
+  <div class="box color-1">
+    Login / Signup
+    <span>index.html / signup.html</span>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Dashboard -->
+  <div class="box color-2">
+    Dashboard
+    <span>dashboard.html</span>
+  </div>
+  <div class="arrow"></div>
+
+  <!-- Main Modules Row -->
+  <div class="row">
+    <div class="box color-3">
+      Courses / Lessons
+      <span>courses.html / lesson.html</span>
     </div>
-  </section>  <section id="portfolio">
-    <h2>Portfolio & Experience</h2>
-    <div class="timeline">
-      <div>
-        <h3>Research Project: Maternal Health Outreach in Rural Communities</h3>
-        <p><em>Jan 2024 - Mar 2024</em> | Led a community-based survey to assess maternal healthcare accessibility and proposed actionable solutions.</p>
-      </div>
-      <div>
-        <h3>Volunteer: Immunization Campaign Assistant</h3>
-        <p><em>Red Cross Nigeria | Jul 2023</em> | Assisted in the delivery of immunization programs to underserved communities.</p>
-      </div>
-      <div>
-        <h3>Clinical Rotation: Primary Health Centre</h3>
-        <p><em>Sept 2023 - Dec 2023</em> | Gained practical skills in patient care, diagnosis, and community health education.</p>
-      </div>
+    <div class="box color-3">
+      Join Class
+      <span>class.html</span>
     </div>
-  </section>  <section id="contact">
-    <h2>Contact Me</h2>
-    <p style="text-align:center;">
-      <a class="btn" href="mailto:info@example.com">Email Me</a>
-      <a class="btn" href="https://wa.me/2348148808512">WhatsApp</a>
-    </p>
-  </section>  <footer>
-    &copy; 2025 Adamu A Adamu. All rights reserved.
-  </footer>
+    <div class="box color-3">
+      Problem Poll
+      <span>poll.html</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="box color-4">
+      Blog Hub
+      <span>blog.html</span>
+    </div>
+    <div class="box color-4">
+      Quiz & Assignment
+      <span>quiz-assignment.html</span>
+    </div>
+    <div class="box color-4">
+      Certificates
+      <span>certificate.html</span>
+    </div>
+    <div class="box color-4">
+      Settings
+      <span>settings.html</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Optional: Add interactivity like hover highlights
+  document.querySelectorAll('.box').forEach(box => {
+    box.addEventListener('mouseover', () => {
+      box.style.transform = 'scale(1.05)';
+      box.style.transition = '0.3s';
+    });
+    box.addEventListener('mouseout', () => {
+      box.style.transform = 'scale(1)';
+    });
+  });
+</script>
+
 </body>
 </html>
