@@ -1,272 +1,209 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FARM RISE Interactive Flow</title>
 <style>
-  body { font-family: Arial, sans-serif; background:#f0f4f8; margin:0; padding:20px; }
-  h1 { text-align:center; margin:0 0 18px; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
 
-  /* Join button */
+  /* Hero logo section */
+  .hero-logos {
+    margin-bottom: 30px;
+  }
+
+  .hero-logos img.main-logo {
+    max-width: 280px;
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+  .powered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #444;
+    font-weight: 600;
+  }
+
+  .powered img {
+    max-width: 140px;
+    height: auto;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 30px 0 40px 0;
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    background: #4f46e5;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    min-width: 200px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .box:hover {
+    transform: scale(1.05);
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .arrow-down {
+    width: 2px;
+    height: 40px;
+    background: #6366f1;
+    position: relative;
+    margin: 0 auto 20px auto;
+  }
+
+  .arrow-down::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: -5px;
+    border: 5px solid transparent;
+    border-top-color: #6366f1;
+  }
+
+  .color-auth { background: #6366f1; }
+  .color-dashboard { background: #10b981; }
+  .color-core { background: #f59e0b; }
+  .color-engage { background: #ef4444; }
+
+  /* Join Now button */
   .btn-primary {
-    display:inline-block; background:#4f46e5; color:#fff; padding:12px 24px; border-radius:12px;
-    text-decoration:none; font-weight:700; transition: transform .18s, background .18s; margin:12px;
-  }
-  .btn-primary:hover { transform:scale(1.03); background:#4338ca; }
-
-  .diagram-container { display:flex; flex-direction:column; align-items:center; margin-top:10px; }
-
-  .row { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:28px; }
-
-  /* Seed box */
-  .seed-box {
-    cursor:pointer; position:relative; min-width:200px; padding:18px 22px; border-radius:12px;
-    color:#fff; display:flex; align-items:center; gap:12px; box-shadow:0 6px 18px rgba(0,0,0,0.12);
-    transition: transform .22s, box-shadow .22s; margin:18px; flex-direction:column; text-align:center;
-  }
-  .seed-box.locked { opacity:.78; cursor:default; }
-  .seed-box.unlocked:hover { transform:translateY(-6px); box-shadow:0 14px 30px rgba(0,0,0,0.18); }
-
-  /* Seed visuals */
-  .seed-icon { width:48px; height:48px; position:relative; margin-bottom:6px; }
-  .seed-shell { width:100%; height:100%; background:linear-gradient(180deg,#6d28d9,#4f46e5); border-radius:50%;
-    display:flex; align-items:center; justify-content:center; transition: transform .45s ease; }
-  .sprout { position:absolute; left:50%; top:10%; width:6px; height:0; background:linear-gradient(#10b981,#16a34a);
-    border-radius:4px; transform:translateX(-50%) scaleY(0); transform-origin:bottom center;
-    transition: transform .45s cubic-bezier(.2,.8,.2,1); }
-  .leaf { position:absolute; width:16px; height:8px; background:#16a34a; border-radius:8px; top:-6px; left:50%;
-    transform:translateX(-50%) rotate(-25deg) scale(0); transform-origin:left center; transition:transform .45s cubic-bezier(.2,.8,.2,1); }
-  .seed-box.unlocked:hover .seed-shell { transform:scale(.88) rotate(-6deg); }
-  .seed-box.unlocked:hover .sprout { transform:translateX(-50%) scaleY(1); height:24px; }
-  .seed-box.unlocked:hover .leaf { transform:translateX(-50%) rotate(-20deg) scale(1); }
-
-  /* Colors */
-  .color-auth { background:#6366f1; }
-  .color-dashboard { background:#10b981; }
-  .color-core { background:#f59e0b; color:#111827; }
-  .color-engage { background:#ef4444; }
-
-  /* Countdown badge and glow */
-  .countdown { font-weight:600; background:rgba(255,255,255,.15); padding:6px 10px; border-radius:8px; margin-top:8px; transition:all .3s; }
-  .countdown.unlocked-badge {
-    background:#16a34a; color:#fff; box-shadow:0 0 12px #22c55e, 0 0 20px #22c55e; animation:pulseGlow 1.5s infinite alternate;
-  }
-  @keyframes pulseGlow {
-    from { box-shadow:0 0 8px #16a34a, 0 0 15px #22c55e; } to { box-shadow:0 0 20px #16a34a, 0 0 30px #22c55e; }
+    display: inline-block;
+    background: #10b981;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 20px 10px;
   }
 
-  /* Modal */
-  .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.66); z-index:9999; justify-content:center; align-items:center; }
-  .modal[aria-hidden="false"] { display:flex; }
-  .modal-content { background:#fff; border-radius:12px; padding:14px; width:92%; max-width:900px; position:relative; }
-  .close-btn { position:absolute; right:12px; top:8px; font-size:20px; cursor:pointer; color:#444; border:none; background:transparent; }
-
-  @media(max-width:600px){
-    .row { flex-direction:column; align-items:center; }
-    .modal-content { width:96%; padding:10px; }
+  .btn-primary:hover {
+    background: #059669;
+    transform: scale(1.05);
   }
+
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .close:hover { color: #000; }
 </style>
 </head>
 <body>
-  <h1>🌾 FARM RISE Interactive Flow</h1>
 
-  <!-- Top Join button -->
-  <div style="text-align:center;">
-    <a href="#" class="btn-primary open-form">Join Now & Start Mastery</a>
+<!-- Hero Logos -->
+<div class="hero-logos">
+  <img src="https://i.postimg.cc/8kxfd1g3/20250920-115532-0000.jpg" alt="AM&S Logo" class="main-logo">
+  <div class="powered">
+    Powered by
+    <img src="https://i.postimg.cc/QCHgFHDx/Green-and-Beige-Classic-Elegant-Nature-Foundation-Logo-20250909-210257-0000.png" alt="FarmRise Logo">
   </div>
+</div>
 
-  <div class="diagram-container">
-    <!-- Login / Signup -->
-    <div class="seed-box color-auth locked" data-unlock="2025-09-25T12:00:00+01:00" data-url="index.html">
-      <div class="seed-icon">
-        <div class="seed-shell"></div>
-        <div class="sprout"></div>
-        <div class="leaf"></div>
-      </div>
-      <div>Login / Signup</div>
-      <div class="countdown">Loading…</div>
-    </div>
+<h1>FARM RISE P Interactive Flow</h1>
 
-    <div class="row">
-      <div class="seed-box color-dashboard locked" data-unlock="2025-09-27T12:00:00+01:00" data-url="dashboard.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Dashboard</div>
-        <div class="countdown">Loading…</div>
-      </div>
+<!-- Join Now Buttons -->
+<a href="#" class="btn-primary open-form">Join Now & Start Mastery</a>
+<a href="#" class="btn-primary open-form">Join Now & Claim Your Certificate</a>
 
-      <div class="seed-box color-core locked" data-unlock="2025-09-29T15:00:00+01:00" data-url="courses.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Courses / Lessons</div>
-        <div class="countdown">Loading…</div>
-      </div>
+<!-- Flow Diagram -->
+<div class="diagram-container">
+  <!-- (keep your diagram boxes here as you had them before) -->
+</div>
 
-      <div class="seed-box color-core locked" data-unlock="2025-09-30T09:00:00+01:00" data-url="class.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Join Class</div>
-        <div class="countdown">Loading…</div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="seed-box color-core locked" data-unlock="2025-10-01T12:00:00+01:00" data-url="poll.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Problem Poll</div>
-        <div class="countdown">Loading…</div>
-      </div>
-
-      <div class="seed-box color-engage locked" data-unlock="2025-10-03T12:00:00+01:00" data-url="blog.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Blog Hub</div>
-        <div class="countdown">Loading…</div>
-      </div>
-
-      <div class="seed-box color-engage locked" data-unlock="2025-10-05T12:00:00+01:00" data-url="quiz-assignment.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Quiz & Assignment</div>
-        <div class="countdown">Loading…</div>
-      </div>
-
-      <div class="seed-box color-engage locked" data-unlock="2025-10-06T12:00:00+01:00" data-url="certificate.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Certificates</div>
-        <div class="countdown">Loading…</div>
-      </div>
-
-      <div class="seed-box color-engage locked" data-unlock="2025-10-08T12:00:00+01:00" data-url="settings.html">
-        <div class="seed-icon">
-          <div class="seed-shell"></div><div class="sprout"></div><div class="leaf"></div>
-        </div>
-        <div>Settings</div>
-        <div class="countdown">Loading…</div>
-      </div>
-    </div>
+<!-- Modal with Jotform -->
+<div id="formModal" class="modal">
+  <div class="modal-content">
+    <span id="closeFormBtn" class="close">&times;</span>
+    <script type="text/javascript" src="https://form.jotform.com/jsform/252612332436551"></script>
   </div>
-
-  <!-- Bottom Join button -->
-  <div style="text-align:center; margin-top:8px;">
-    <a href="#" class="btn-primary open-form">Join Now & Claim Your Certificate</a>
-  </div>
-
-  <!-- Modal (JotForm will be loaded inside #jotformContainer dynamically) -->
-  <div class="modal" id="formModal" aria-hidden="true" role="dialog" aria-labelledby="formTitle">
-    <div class="modal-content" role="document">
-      <button class="close-btn" id="closeFormBtn" aria-label="Close">&times;</button>
-      <h2 id="formTitle" style="margin-top:0; font-size:18px;">Sign Up — FARM RISE</h2>
-      <div id="jotformContainer">
-        <!-- JotForm embed script will be inserted here when modal first opens -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Unlock sound (optional) -->
-  <audio id="unlockSound" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg" preload="auto"></audio>
+</div>
 
 <script>
-/* -------------------------
-   Countdown + Unlock logic
-   ------------------------- */
-function startSeedCountdowns() {
-  const unlockSound = document.getElementById('unlockSound');
+// Modal logic
+const modal = document.getElementById("formModal");
+const closeBtn = document.getElementById("closeFormBtn");
 
-  document.querySelectorAll('.seed-box').forEach(box => {
-    const display = box.querySelector('.countdown');
-    const unlockStr = box.dataset.unlock;
-    if (!unlockStr) { display.textContent = 'Coming soon'; return; }
-    const unlockDate = new Date(unlockStr);
-
-    function tick() {
-      const now = new Date();
-      const diff = unlockDate - now;
-      if (diff <= 0) {
-        // unlock
-        box.classList.remove('locked');
-        box.classList.add('unlocked');
-        display.textContent = 'Unlocked — Click to Enter';
-        display.classList.add('unlocked-badge');
-        box.style.transform = 'scale(1.06)';
-        setTimeout(()=>{ box.style.transform = 'scale(1)'; }, 380);
-
-        try { unlockSound.currentTime = 0; unlockSound.play(); } catch(e){}
-
-        // attach click once to open the target (you can change to modal if you prefer)
-        box.addEventListener('click', () => {
-          const url = box.dataset.url || '#';
-          // If you prefer JotForm for every box, replace window.open with modal open + load specific form.
-          window.open(url, '_blank');
-        }, { once:true });
-
-        return;
-      }
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
-      const mins = Math.floor((diff % (1000*60*60))/(1000*60));
-      const secs = Math.floor((diff % (1000*60))/1000);
-      display.textContent = `${days}d ${hours}h ${mins}m ${secs}s`;
-    }
-
-    tick();
-    const interval = setInterval(() => {
-      tick();
-      if (new Date() >= unlockDate) clearInterval(interval);
-    }, 1000);
-  });
-}
-startSeedCountdowns();
-
-/* -------------------------
-   Modal + JotForm dynamic load
-   ------------------------- */
-const modal = document.getElementById('formModal');
-const closeBtn = document.getElementById('closeFormBtn');
-const jotformContainer = document.getElementById('jotformContainer');
-let jotformLoaded = false;
-
-function openFormModal() {
-  modal.setAttribute('aria-hidden','false');
-  modal.style.display = 'flex';
-  // Load JotForm embed script only once
-  if (!jotformLoaded) {
-    const s = document.createElement('script');
-    s.type = 'text/javascript';
-    // <-- your JotForm embed script (provided)
-    s.src = 'https://form.jotform.com/jsform/252612332436551';
-    jotformContainer.appendChild(s);
-    jotformLoaded = true;
-  }
-}
-
-function closeFormModal() {
-  modal.setAttribute('aria-hidden','true');
-  modal.style.display = 'none';
-}
-
-// open modal on any Join button
-document.querySelectorAll('.open-form').forEach(btn => {
-  btn.addEventListener('click', (e) => {
+// Open all Join buttons
+document.querySelectorAll(".open-form").forEach(btn => {
+  btn.addEventListener("click", (e) => {
     e.preventDefault();
-    openFormModal();
+    modal.style.display = "flex";
   });
 });
-closeBtn.addEventListener('click', closeFormModal);
-window.addEventListener('click', (e) => {
-  if (e.target === modal) closeFormModal();
+
+// Close modal
+closeBtn.addEventListener("click", () => modal.style.display = "none");
+window.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
 });
-window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFormModal(); });
 </script>
+
 </body>
-    </html>
+</html>
