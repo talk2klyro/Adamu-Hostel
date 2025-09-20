@@ -23,24 +23,6 @@
     align-items: center;
   }
 
-  .box {
-    background: #4f46e5;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
-    margin: 20px 0;
-    min-width: 200px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-
-  .box:hover {
-    transform: scale(1.05);
-  }
-
   .row {
     display: flex;
     justify-content: center;
@@ -49,112 +31,190 @@
     margin-bottom: 40px;
   }
 
-  .arrow-down {
-    width: 2px;
-    height: 40px;
-    background: #6366f1;
+  /* --- Hybrid Seed Box --- */
+  .seed-box {
+    cursor: pointer;
     position: relative;
-    margin: 0 auto 20px auto;
+    min-width: 200px;
+    padding: 18px 22px;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    transition: transform .22s, box-shadow .22s;
+    margin: 18px;
+    flex-direction: column;
+    text-align: center;
   }
+  .seed-box.locked { opacity: 0.75; cursor: default; }
+  .seed-box.unlocked:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
 
-  .arrow-down::after {
-    content: "";
+  /* Seed animation */
+  .seed-icon { width: 48px; height: 48px; position: relative; }
+  .seed-shell {
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg,#6d28d9,#4f46e5);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .45s ease;
+  }
+  .sprout {
+    position: absolute; left: 50%; top: 10%;
+    width: 6px; height: 0;
+    background: linear-gradient(#10b981,#16a34a);
+    border-radius: 4px;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: bottom center;
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .leaf {
     position: absolute;
-    bottom: -10px;
-    left: -5px;
-    border: 5px solid transparent;
-    border-top-color: #6366f1;
+    width: 16px; height: 8px;
+    background:#16a34a; border-radius: 8px;
+    top: -6px; left: 50%;
+    transform: translateX(-50%) rotate(-25deg) scale(0);
+    transform-origin: left center;
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .seed-box.unlocked:hover .seed-shell { transform: scale(.88) rotate(-6deg); }
+  .seed-box.unlocked:hover .sprout { transform: translateX(-50%) scaleY(1); height: 24px; }
+  .seed-box.unlocked:hover .leaf { transform: translateX(-50%) rotate(-20deg) scale(1); }
+
+  /* Countdown badge */
+  .countdown {
+    font-weight: 600;
+    background: rgba(255,255,255,.15);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-top: 6px;
+    transition: all 0.3s ease;
+  }
+  /* Glow when unlocked */
+  .countdown.unlocked-badge {
+    background: #16a34a;
+    color: #fff;
+    box-shadow: 0 0 12px #22c55e, 0 0 20px #22c55e;
+    animation: pulseGlow 1.5s infinite alternate;
+  }
+  @keyframes pulseGlow {
+    from { box-shadow: 0 0 8px #16a34a, 0 0 15px #22c55e; }
+    to   { box-shadow: 0 0 20px #16a34a, 0 0 30px #22c55e; }
   }
 
-  .color-auth { background: #6366f1; }       /* Login/Signup */
-  .color-dashboard { background: #10b981; }  /* Dashboard */
-  .color-core { background: #f59e0b; }       /* Lessons / Class / Poll */
-  .color-engage { background: #ef4444; }     /* Blog / Quiz / Cert / Settings */
+  /* Colors */
+  .color-auth { background:#6366f1; }
+  .color-dashboard { background:#10b981; }
+  .color-core { background:#f59e0b; color:#111827; }
+  .color-engage { background:#ef4444; }
 
-  /* Optional curved arrows */
-  .arrow-curve {
-    width: 150px;
-    height: 80px;
-    border-top: 2px solid #6366f1;
-    border-right: 2px solid #6366f1;
-    border-radius: 0 0 0 80px;
-    margin: 0 auto 20px auto;
+  @media(max-width:600px){
+    .row { flex-direction: column; align-items: center; }
   }
 </style>
 </head>
 <body>
-<h1>FARM RISE P Interactive Flow</h1>
+<h1>🌱 FARM RISE Interactive Flow</h1>
 
 <div class="diagram-container">
 
-  <!-- Login / Signup -->
-  <div class="box color-auth" onclick="openPage('index.html')">
-    Login / Signup
-    <span></span>
+  <!-- Example seed boxes with unlock dates -->
+  <div class="seed-box color-auth locked" data-unlock="2025-09-22T09:00:00+01:00" data-url="https://form.jotform.com/252612332436551">
+    <div class="seed-icon">
+      <div class="seed-shell"></div>
+      <div class="sprout"></div>
+      <div class="leaf"></div>
+    </div>
+    <div>Login / Signup</div>
+    <div class="countdown">Loading…</div>
   </div>
-  <div class="arrow-down"></div>
 
-  <!-- Dashboard -->
-  <div class="box color-dashboard" onclick="openPage('dashboard.html')">
-    Dashboard
-    <span></span>
+  <div class="seed-box color-dashboard locked" data-unlock="2025-09-24T12:00:00+01:00" data-url="dashboard.html">
+    <div class="seed-icon">
+      <div class="seed-shell"></div>
+      <div class="sprout"></div>
+      <div class="leaf"></div>
+    </div>
+    <div>Dashboard</div>
+    <div class="countdown">Loading…</div>
   </div>
-  <div class="arrow-curve"></div>
 
-  <!-- Core Modules Row -->
   <div class="row">
-    <div class="box color-core" onclick="openPage('courses.html')">
-      Courses / Lessons
-      <span></span>
+    <div class="seed-box color-core locked" data-unlock="2025-09-26T15:00:00+01:00" data-url="courses.html">
+      <div class="seed-icon">
+        <div class="seed-shell"></div>
+        <div class="sprout"></div>
+        <div class="leaf"></div>
+      </div>
+      <div>Courses / Lessons</div>
+      <div class="countdown">Loading…</div>
     </div>
-    <div class="box color-core" onclick="openPage('class.html')">
-      Join Class
-      <span></span>
-    </div>
-    <div class="box color-core" onclick="openPage('poll.html')">
-      Problem Poll
-      <span></span>
+
+    <div class="seed-box color-core locked" data-unlock="2025-09-28T09:00:00+01:00" data-url="class.html">
+      <div class="seed-icon">
+        <div class="seed-shell"></div>
+        <div class="sprout"></div>
+        <div class="leaf"></div>
+      </div>
+      <div>Join Class</div>
+      <div class="countdown">Loading…</div>
     </div>
   </div>
-
-  <!-- Engagement / Extra Modules Row -->
-  <div class="row">
-    <div class="box color-engage" onclick="openPage('blog.html')">
-      Blog Hub
-      <span></span>
-    </div>
-    <div class="box color-engage" onclick="openPage('quiz-assignment.html')">
-      Quiz & Assignment
-      <span></span>
-    </div>
-    <div class="box color-engage" onclick="openPage('certificate.html')">
-      Certificates
-      <span></span>
-    </div>
-    <div class="box color-engage" onclick="openPage('settings.html')">
-      Settings
-      <span></span>
-    </div>
-  </div>
-
 </div>
 
+<!-- Unlock sound -->
+<audio id="unlockSound" src="https://actions.google.com/sounds/v1/cartoon/pop.ogg" preload="auto"></audio>
+
 <script>
-  // Open page on box click
-  function openPage(url) {
-    window.open(url, '_blank'); // opens in new tab
-  }
+function startSeedCountdowns() {
+  const unlockSound = document.getElementById('unlockSound');
 
-  // Optional: highlight on hover
-  document.querySelectorAll('.box').forEach(box => {
-    box.addEventListener('mouseover', () => {
-      box.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)';
-    });
-    box.addEventListener('mouseout', () => {
-      box.style.boxShadow = '0 6px 18px rgba(0,0,0,0.1)';
-    });
+  document.querySelectorAll('.seed-box').forEach(box => {
+    const display = box.querySelector('.countdown');
+    const unlockStr = box.dataset.unlock;
+    if (!unlockStr) { display.textContent = 'Coming soon'; return; }
+    const unlockDate = new Date(unlockStr);
+
+    const tick = () => {
+      const now = new Date();
+      const diff = unlockDate - now;
+      if (diff <= 0) {
+        // unlock
+        box.classList.remove('locked');
+        box.classList.add('unlocked');
+        display.textContent = 'Unlocked — Click to Enter';
+        display.classList.add('unlocked-badge');
+
+        // bounce effect on unlock
+        box.style.transform = 'scale(1.1)';
+        setTimeout(() => { box.style.transform = 'scale(1)'; }, 400);
+
+        // play sound
+        unlockSound.play().catch(()=>{});
+
+        // click opens JotForm/page
+        box.addEventListener('click', () => {
+          const url = box.dataset.url || '#';
+          window.open(url, '_blank');
+        }, { once:true });
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((diff % (1000*60)) / 1000);
+      display.textContent = `${days}d ${hours}h ${mins}m ${secs}s`;
+    };
+    tick();
+    const interval = setInterval(() => {
+      tick();
+      if (new Date() >= unlockDate) clearInterval(interval);
+    }, 1000);
   });
+}
+startSeedCountdowns();
 </script>
-
 </body>
-</html>
+      </html>
